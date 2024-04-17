@@ -1,0 +1,33 @@
+@import '/src/components/scss/colors';
+@import'/src/components/scss/variable';
+
+
+.card{
+    background-color: $primary;
+    padding: 10px;
+    color: $white;
+    &__container{
+        &__tittle{
+            font-size: 24px;
+            text-transform: capitalize;
+        }
+        &__content{
+            font-size: 18px;
+            text-transform: capitalize;
+
+        }
+        &__btn{
+            @include displayflex(start,flex-end);
+            gap: 5px;
+            &__one{
+                font-size: 20PX;
+
+            }
+            &__two{
+                font-size: 20PX;
+
+            }
+        }
+    }
+
+}

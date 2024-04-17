@@ -1,0 +1,19 @@
+@import '/src/components/scss/colors';
+@import'/src/components/scss/variable';
+
+
+.header-container{
+    height: 100px;
+    background-color: $primary;
+    @include displayflex();
+    width: 100%;
+    &__tittle{
+        color: $white;
+        width: 95%;
+        margin: auto;
+        @include displayflex(center,flex-start);
+        gap: 10px;
+
+    }
+   
+}

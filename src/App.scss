@@ -1,0 +1,11 @@
+@import'/src/components/scss/font';
+
+body{
+    @include fontfamaliy();
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+
+}
+
+
