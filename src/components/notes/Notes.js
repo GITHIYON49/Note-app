@@ -5,15 +5,16 @@ import Button from 'react-bootstrap/Button';
 import { BiSolidPencil } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
 
-function Notes({data,setValue,setName,setDescription,index,value}) {
+function Notes({data,setValue,setName,setDescription,index,value,setUpdate}) {
 
   function handelEdit(){
-    let name = data[1].name;
-    let description = data[1].description;
+    // let boolean = true;
+    setUpdate(true);
+    let newData = [...value];
 
-    console.log(setName(name));
-    setDescription(description);
-
+    let data = newData[index];
+  setName(data.name)
+  setDescription(data.description)
 
 
   }
@@ -27,11 +28,6 @@ function Notes({data,setValue,setName,setDescription,index,value}) {
 
     setValue(newData);
 
-    console.log(newData);
-    
-
-    // newData.splice(index,1);
-    // setValue(newData);
   }
   return <>
   <div>
