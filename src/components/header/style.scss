@@ -1,20 +1,16 @@
-@import '/src/scss/colors';
-@import'/src/scss/variable';
+@import "/src/scss/colors";
+@import "/src/scss/variable";
 
-
-
-.header-container{
-    height: 100px;
-    width: 100%;
-    background-color: $primary;
-    @include displayflex();
-    &__tittle{
-        color: $white;
-        width: 95%;
-        margin: auto;
-        @include displayflex(center,flex-start);
-        gap: 10px;
-
-    }
-   
+.header-container {
+  height: 100px;
+  width: 100%;
+  background-color: $primary;
+  @include displayflex();
+  &__tittle {
+    color: $white;
+    width: 95%;
+    margin: auto;
+    @include displayflex(center, flex-start);
+    gap: 10px;
+  }
 }

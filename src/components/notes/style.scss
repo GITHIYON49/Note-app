@@ -1,43 +1,39 @@
-@import '/src/scss/colors';
-@import'/src/scss/variable';
+@import "/src/scss/colors";
+@import "/src/scss/variable";
 
-
-.card{
-    background-color: $primary;
-    padding: 10px;
-    color: $white;
-    width: 300px;
-    &__container{
-        width: 100%;
-        height: 100%;
-        &__tittle{
-            font-size: 24px;
-            text-transform: capitalize;
-        }
-        &__content{
-            font-size: 16px;
-            text-transform: capitalize;
-            
-
-        }
-        &__btn{
-            @include displayflex(start,flex-end);
-            gap: 5px;
-            &__one{
-                font-size: 20PX;
-
-            }
-            &__two{
-                font-size: 20PX;
-
-            }
-        }
+.card {
+  background-color: $primary;
+  padding: 10px;
+  color: $white;
+  width: 300px;
+  &__container {
+    width: 100%;
+    height: 100%;
+    &__tittle {
+      font-size: 24px;
+      text-transform: capitalize;
     }
-
+    &__content {
+      font-size: 16px;
+      text-transform: capitalize;
+    }
+    &__btn {
+      @include displayflex(start, flex-end);
+      gap: 5px;
+      &__one {
+        font-size: 20px;
+        cursor: pointer;
+      }
+      &__two {
+        font-size: 20px;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
-@media(max-width:567px){
-    .card{
+@media (max-width: 567px) {
+  .card {
     width: 280px;
-    }
+  }
 }
