@@ -21,6 +21,20 @@ function AddNotes() {
     description,
   };
 
+  function handleName(event){
+    setName(event.target.value)
+  }
+
+  function handleDescription(event){
+    setDescription(event.target.value)
+  }
+
+  function handleAdd(){
+    setValue([...value, newData]);
+    handelInput();
+
+  }
+
   function handelInput() {
     if (name === "" || description === "") {
       let data = [...value];
@@ -78,7 +92,7 @@ function AddNotes() {
               </Form.Label>
               <Input value={name}
               placeholder ={'Enter Your Title'}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => handleName(e)}
                 className="section__card__form-container__one__tittle-input"/>
 
             </Form.Group>
@@ -92,32 +106,19 @@ function AddNotes() {
               <TextArea 
                className="section__card__form-container__two__desc-area"
                value={description}
-               onChange={(e) => setDescription(e.target.value)}
+               onChange={(e) => handleDescription(e)}
               />
             </Form.Group>
             <div className="section__card__form-container__btn">
-              {!update ? (
                 <Button
                   className="section__card__form-container__btn__btn-1"
                   variant="outline-success"
-                  onClick={() => {
-                    setValue([...value, newData]);
-                    handelInput();
-                  }}
-                  add={'add'}
+                  onClick={() => { !update ? handleAdd() : handleUpdate() }}
+                  add={!update ?'add' : 'update'}
                   type="button"
-                >
-                </Button>
-              ) : (
-                <Button
-                  className="section__card__form-container__btn__btn-2"
-                  variant="outline-success"
-                  onClick={() => handleUpdate()}
-                  add={' update'}
-                  type="button"
-                >
-                </Button>
-              )}
+                />
+
+                
               <LuRefreshCw
                 className="section__card__form-container__btn__refresh"
                 onClick={() => handelClearInput()}
@@ -127,7 +128,7 @@ function AddNotes() {
         </Card>
 
         <div className="section__Notes">
-          {value.map((item, id) => {
+          {value?.map((item, id) => {
             return (
               <Notes
                 data={item}
