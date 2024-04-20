@@ -1,8 +1,8 @@
-import React from 'react'
+import './style.scss'
 
-function Input() {
+function Input({value,onChange,placeholder}) {
   return <>
-  <input/>
+  <input className='input-box' placeholder={placeholder} value={value} onChange={onChange}/>
   </>
 }
 

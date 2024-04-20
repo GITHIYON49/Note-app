@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import Button from "../Button/Button";
+import Input from "../Input/Input";
 import Notes from "../notes/Notes";
+import TextArea from "../TextArea/TextArea";
 import { LuRefreshCw } from "react-icons/lu";
 import { toast } from "react-toastify";
 import "./style.scss";
@@ -24,6 +26,10 @@ function AddNotes() {
       let data = [...value];
       setValue(data);
     }
+    else{
+      toast.success(`${newData.name} Add Successfully `);
+    }
+  
   }
 
   function handelClearInput() {
@@ -46,8 +52,17 @@ function AddNotes() {
     data.splice(newId, 1, newData);
     setValue(data);
     setUpdate(false);
-    toast.warning("Your update sucessfully!!!");
-    handelInput();
+    toast.warning(`${newData.name} update sucessfully!!!`);
+  }
+
+  function handelDelete(id){
+    let newData = [...value];
+    toast.error(`${newData[id].name} Delete Sucessfully`);
+
+    newData.splice(id, 1);
+
+    setValue(newData);
+    
   }
   return (
     <>
@@ -59,15 +74,13 @@ function AddNotes() {
               controlId="exampleForm.ControlInput1"
             >
               <Form.Label className="section__card__form-container__one__tittle">
-                Tittle
+                Title
               </Form.Label>
-              <Form.Control
-                className="section__card__form-container__one__tittle-input"
-                value={name}
+              <Input value={name}
+              placeholder ={'Enter Your Title'}
                 onChange={(e) => setName(e.target.value)}
-                type="email"
-                placeholder="name@example.com"
-              />
+                className="section__card__form-container__one__tittle-input"/>
+
             </Form.Group>
             <Form.Group
               className="mb-3 section__card__form-container__two"
@@ -76,11 +89,10 @@ function AddNotes() {
               <Form.Label className="section__card__form-container__two__desc">
                 Description
               </Form.Label>
-              <Form.Control
-                className="section__card__form-container__two__desc-area"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                as="textarea"
+              <TextArea 
+               className="section__card__form-container__two__desc-area"
+               value={description}
+               onChange={(e) => setDescription(e.target.value)}
               />
             </Form.Group>
             <div className="section__card__form-container__btn">
@@ -90,21 +102,20 @@ function AddNotes() {
                   variant="outline-success"
                   onClick={() => {
                     setValue([...value, newData]);
-                    toast.success("your Notes Save Successfully!!!");
                     handelInput();
                   }}
+                  add={'add'}
                   type="button"
                 >
-                  Add
                 </Button>
               ) : (
                 <Button
                   className="section__card__form-container__btn__btn-2"
                   variant="outline-success"
                   onClick={() => handleUpdate()}
+                  add={' update'}
                   type="button"
                 >
-                  update
                 </Button>
               )}
               <LuRefreshCw
@@ -120,14 +131,13 @@ function AddNotes() {
             return (
               <Notes
                 data={item}
-                value={value}
                 key={id}
-                index={id}
-                setValue={setValue}
-                setUpdate={setUpdate}
                 handleEdit={() => {
                   handleEdit(id);
                 }}
+                handleDelete ={()=> {
+                  handelDelete(id)}
+                }
                 setName={setName}
                 setDescription={setDescription}
               />

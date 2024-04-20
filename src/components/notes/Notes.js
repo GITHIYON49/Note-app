@@ -3,17 +3,8 @@ import "./style.scss";
 import Card from "react-bootstrap/Card";
 import { BiSolidPencil } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
-import { toast } from "react-toastify";
 
-function Notes({ data, setValue, index, value, handleEdit }) {
-  function handelDelete() {
-    let newData = [...value];
-
-    newData.splice(index, 1);
-
-    setValue(newData);
-    toast.error("Delete Sucessfully");
-  }
+function Notes({ data,handleEdit,handleDelete }) {
   return (
     <>
       <div>
@@ -30,7 +21,7 @@ function Notes({ data, setValue, index, value, handleEdit }) {
                 <BiSolidPencil onClick={handleEdit} />
               </div>
               <div className="card__container__btn__two">
-                <MdDelete onClick={() => handelDelete()} />
+                <MdDelete onClick={handleDelete} />
               </div>
             </div>
           </Card.Body>

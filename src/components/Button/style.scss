@@ -3,5 +3,13 @@
 .button{
     padding: 10px 20px;
     background-color: white;
-    // width: 100%;
+    width: 100%;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: bold;
+    border-radius:5px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+
 }
