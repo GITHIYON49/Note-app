@@ -5,12 +5,12 @@
   height: 100px;
   width: 100%;
   background-color: $primary;
-  @include displayflex();
+  @include displayflex(center,center,flex);
   &__tittle {
     color: $white;
     width: 95%;
     margin: auto;
-    @include displayflex(center, flex-start);
+    @include displayflex(center, flex-start,flex);
     gap: 10px;
   }
 }

@@ -1,12 +1,6 @@
-@mixin displayflex($align:'center',$justify:'center'){
-    display: flex;
+@mixin displayflex($align:'center',$justify:'center',$display:'flex'){
+    display: $display;
     align-items: $align;
     justify-content:$justify;
 }
 
-@mixin displaygrid($align:'center',$justify:'center'){
-    display: grid;
-    align-items: $align;
-    justify-items:$justify;
-
-}

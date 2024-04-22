@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
-import Button from "../Button/Button";
-import Input from "../Input/Input";
 import Notes from "../notes/Notes";
-import TextArea from "../TextArea/TextArea";
 import { LuRefreshCw } from "react-icons/lu";
 import { toast } from "react-toastify";
+import {Button,Input,TextArea} from '../index'
 import "./style.scss";
 
 function AddNotes() {

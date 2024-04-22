@@ -2,7 +2,7 @@
 @import "/src/scss/variable";
 
 .section {
-  @include displaygrid();
+  @include displayflex(center,center,grid);
   grid-template-columns: 1fr 4fr;
   grid-column-gap: 15px;
   width: 100%;
@@ -12,12 +12,12 @@
     min-height: 100vh;
     background-color: $secondnary;
     &__form-container {
-      @include displayflex(center, center);
+      @include displayflex(center, center,flex);
       flex-direction: column;
       width: 90%;
       gap: 10px;
       &__one {
-        @include displayflex(start, center);
+        @include displayflex(start, center,flex);
         flex-direction: column;
         width: 80%;
         &__tittle {
@@ -27,7 +27,7 @@
         }
       }
       &__two {
-        @include displayflex(start, center);
+        @include displayflex(start, center,flex);
         flex-direction: column;
         width: 80%;
         &__desc {
@@ -38,7 +38,7 @@
       }
 
       &__btn {
-        @include displayflex(center, space-between);
+        @include displayflex(center, space-between,flex);
         width: 80%;
 
         &__btn-1,
@@ -61,7 +61,7 @@
   &__Notes {
     width: 98%;
     height: 400px;
-    @include displayflex(flex-start, flex-start);
+    @include displayflex(flex-start, flex-start,flex);
     flex-wrap: wrap;
     gap: 10px;
     margin: 10px;
@@ -70,7 +70,7 @@
   @media (max-width: 998px) {
     &__Notes {
       background-color: 80%;
-      @include displayflex(flex-start, center);
+      @include displayflex(flex-start, center,flex);
     }
   }
 }
@@ -83,7 +83,7 @@
 
 @media (max-width: 567px) {
   .section {
-    @include displayflex(center, center);
+    @include displayflex(center, center,flex);
     flex-direction: column;
     width: 100%;
 
