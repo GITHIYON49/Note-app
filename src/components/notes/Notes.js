@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 import { BiSolidPencil } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
 
-function Notes({ data,handleEdit,handleDelete }) {
+function Notes({ data, handleEdit, handleDelete }) {
   return (
     <>
       <div>

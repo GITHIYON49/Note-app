@@ -2,19 +2,20 @@
 @import "/src/scss/variable";
 
 .section {
-  @include displayflex(center,center,grid);
+  @include displayflex(null,start,grid);
   grid-template-columns: 1fr 4fr;
   grid-column-gap: 15px;
   width: 100%;
   &__card {
     width: 100%;
-    height: auto;
     min-height: 100vh;
+    height: auto;
     background-color: $secondnary;
     &__form-container {
-      @include displayflex(center, center,flex);
+      @include displayflex(center,null,flex);
       flex-direction: column;
       width: 90%;
+      height:auto;
       gap: 10px;
       &__one {
         @include displayflex(start, center,flex);

@@ -1,8 +1,8 @@
 import './style.scss'
 
-function TextArea({value,onChange}) {
+function TextArea({value,onChange,name}) {
   return <>
-  <textarea className='text-area-box' value={value} onChange={onChange} ></textarea>
+  <textarea className='text-area-box' name={name} value={value} onChange={onChange} ></textarea>
   </>
 }
 

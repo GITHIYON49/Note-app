@@ -18,7 +18,7 @@
       text-transform: capitalize;
     }
     &__btn {
-      @include displayflex(start, flex-end);
+      @include displayflex(start, flex-end,flex);
       gap: 5px;
       &__one {
         font-size: 20px;
