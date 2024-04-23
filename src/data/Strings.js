@@ -1,6 +1,9 @@
 
-export const Stringes = {
+export const Strings = {
     applicationTitle : 'note app',
     titleInput : 'tittle',
-    textArea : 'description'
+    textArea : 'description',
+    addBtn:'Add',
+    updateBtn:'Update',
+    notFound:'No Record Found...'
 }

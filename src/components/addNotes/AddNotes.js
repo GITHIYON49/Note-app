@@ -4,13 +4,11 @@ import Card from "react-bootstrap/Card";
 import Notes from "../notes/Notes";
 import { LuRefreshCw } from "react-icons/lu";
 import { toast } from "react-toastify";
-import { Button, Input, TextArea, Label } from "../index";
-import { Stringes } from "../../data/Strings";
+import { Button, Input, TextArea, Label,NoRecordFound } from "../index";
+import { Strings } from "../../data/Strings";
 import "./style.scss";
 
 function AddNotes() {
-  // const [name, setName] = useState("");
-  // const [description, setDescription] = useState("");
   const [value, setValue] = useState([]);
   const [update, setUpdate] = useState(false);
   const [newId, setNewId] = useState(null);
@@ -77,12 +75,9 @@ function AddNotes() {
               className="mb-3 section__card__form-container__one"
               controlId="exampleForm.ControlInput1"
             >
-              {/* <Form.Label className="section__card__form-container__one__tittle">
-                {Stringes.titleInput}
-              </Form.Label> */}
               <Label
                 className="section__card__form-container__one__tittle"
-                names={Stringes.titleInput}
+                names={Strings.titleInput}
               />
               <Input
                 name={"name"}
@@ -96,12 +91,9 @@ function AddNotes() {
               className="mb-3 section__card__form-container__two"
               controlId="exampleForm.ControlTextarea1"
             >
-              {/* <Form.Label className="section__card__form-container__two__desc">
-                {Stringes.textArea}
-              </Form.Label> */}
               <Label
                 className="section__card__form-container__two__desc"
-                names={Stringes.textArea}
+                names={Strings.textArea}
               />
               <TextArea
                 name={"description"}
@@ -117,7 +109,7 @@ function AddNotes() {
                 onClick={() => {
                   !update ? handleAdd() : handleUpdate();
                 }}
-                add={!update ? "add" : "update"}
+                add={!update ? Strings.addBtn : Strings.updateBtn}
                 type="button"
               />
 
@@ -130,7 +122,9 @@ function AddNotes() {
         </Card>
 
         <div className="section__Notes">
-          {value?.map((item, id) => {
+          { value.length === 0 ? <div className="section__Notes__No-Record"><NoRecordFound /></div>
+           :
+           value?.map((item, id) => {
             return (
               <Notes
                 data={item}
@@ -143,7 +137,9 @@ function AddNotes() {
                 }}
               />
             );
-          })}
+          })
+          }
+          
         </div>
       </section>
     </>

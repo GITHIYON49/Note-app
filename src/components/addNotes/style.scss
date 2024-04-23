@@ -63,9 +63,17 @@
     width: 98%;
     height: 400px;
     @include displayflex(flex-start, flex-start,flex);
+    text-align: center;
     flex-wrap: wrap;
     gap: 10px;
     margin: 10px;
+
+    &__No-Record{
+      // text-align: center;
+      @include displayflex(center,center,flex);
+      width: 100%;
+      height: 100%;
+    }
   }
 
   @media (max-width: 998px) {

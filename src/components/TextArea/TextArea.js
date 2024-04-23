@@ -6,4 +6,4 @@ function TextArea({value,onChange,name}) {
   </>
 }
 
-export default TextArea
+export default TextArea;
