@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
-import Notes from "../notes/Notes";
+import Notes from "../Notes/Notes";
 import { LuRefreshCw } from "react-icons/lu";
 import { toast } from "react-toastify";
-import { Button, Input, TextArea, Label,NoRecordFound } from "../index";
+import { Button, Input, TextArea, Label, NoRecordFound } from "../index";
 import { Strings } from "../../data/Strings";
 import "./style.scss";
 
@@ -27,10 +25,10 @@ function AddNotes() {
 
   function handleAdd() {
     if (newValue.name === "" || newValue.description === "") {
-      toast.error("Fill Out The Empty Fields");
+      toast.error(`${Strings.emptyMsg}`);
     } else {
       setValue([...value, newValue]);
-      toast.success(`${newValue.name} Add Successfully`);
+      toast.success(`${newValue.name}${Strings.addMsg}`);
     }
   }
 
@@ -55,12 +53,12 @@ function AddNotes() {
     data.splice(newId, 1, newValue);
     setValue(data);
     setUpdate(false);
-    toast.warning(`${newValue.name} update sucessfully!!!`);
+    toast.warning(`${newValue.name} ${Strings.updateMsg}`);
   }
 
   function handelDelete(id) {
     let newData = [...value];
-    toast.error(`${newData[id].name} Delete Sucessfully`);
+    toast.error(`${newData[id].name} ${Strings.deleteMsg}`);
 
     newData.splice(id, 1);
 
@@ -69,48 +67,41 @@ function AddNotes() {
   return (
     <>
       <section className="section">
-        <Card className="section__card">
-          <Form className="section__card__form-container">
-            <Form.Group
-              className="mb-3 section__card__form-container__one"
-              controlId="exampleForm.ControlInput1"
-            >
+        <div className="section__card">
+          <form className="section__card__form-container">
+            <div className="mb-3 section__card__form-container__one">
               <Label
                 className="section__card__form-container__one__tittle"
                 names={Strings.titleInput}
               />
               <Input
-                name={"name"}
+                name={Strings.inputName}
                 value={newValue.name}
-                placeholder={"Enter Your Title"}
+                placeholder={Strings.placeHolderName}
                 onChange={(e) => handleChange(e)}
                 className="section__card__form-container__one__tittle-input"
               />
-            </Form.Group>
-            <Form.Group
-              className="mb-3 section__card__form-container__two"
-              controlId="exampleForm.ControlTextarea1"
-            >
+            </div>
+            <div className="mb-3 section__card__form-container__two">
               <Label
                 className="section__card__form-container__two__desc"
                 names={Strings.textArea}
               />
               <TextArea
-                name={"description"}
+                name={Strings.inputDescription}
                 className="section__card__form-container__two__desc-area"
                 value={newValue.description}
                 onChange={(e) => handleChange(e)}
               />
-            </Form.Group>
+            </div>
             <div className="section__card__form-container__btn">
               <Button
                 className="section__card__form-container__btn__btn-1"
-                variant="outline-success"
                 onClick={() => {
                   !update ? handleAdd() : handleUpdate();
                 }}
                 add={!update ? Strings.addBtn : Strings.updateBtn}
-                type="button"
+                type={Strings.typeBtn}
               />
 
               <LuRefreshCw
@@ -118,28 +109,30 @@ function AddNotes() {
                 onClick={() => handelClearInput()}
               />
             </div>
-          </Form>
-        </Card>
+          </form>
+        </div>
 
         <div className="section__Notes">
-          { value.length === 0 ? <div className="section__Notes__No-Record"><NoRecordFound /></div>
-           :
-           value?.map((item, id) => {
-            return (
-              <Notes
-                data={item}
-                key={id}
-                handleEdit={() => {
-                  handleEdit(id);
-                }}
-                handleDelete={() => {
-                  handelDelete(id);
-                }}
-              />
-            );
-          })
-          }
-          
+          {value.length === 0 ? (
+            <div className="section__Notes__No-Record">
+              <NoRecordFound />
+            </div>
+          ) : (
+            value?.map((item, id) => {
+              return (
+                <Notes
+                  data={item}
+                  key={id}
+                  handleEdit={() => {
+                    handleEdit(id);
+                  }}
+                  handleDelete={() => {
+                    handelDelete(id);
+                  }}
+                />
+              );
+            })
+          )}
         </div>
       </section>
     </>
