@@ -1,5 +1,14 @@
+@import '/src/scss/colors';
 
-.input-box{
+.input-field{
+    &__tittle{
+        color: $white;
+        text-transform: capitalize;
+        font-size: 20px;
+        letter-spacing: 1.5px;
+    }
+    &__box{
     height: 30px;
     width: 100%;
+    }
 }

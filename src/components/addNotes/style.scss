@@ -11,59 +11,12 @@
     min-height: 100vh;
     height: auto;
     background-color: $secondnary;
-    &__form-container {
-      @include displayflex(center,null,flex);
-      flex-direction: column;
-      width: 90%;
-      height:auto;
-      gap: 10px;
-      &__one {
-        @include displayflex(start, center,flex);
-        flex-direction: column;
-        width: 80%;
-        &__tittle {
-          color: $white;
-          font-size: 22px;
-          text-transform: capitalize;
-        }
-      }
-      &__two {
-        @include displayflex(start, center,flex);
-        flex-direction: column;
-        width: 80%;
-        &__desc {
-          color: $white;
-          font-size: 22px;
-          text-transform: capitalize;
-        }
-      }
-
-      &__btn {
-        @include displayflex(center, space-between,flex);
-        width: 80%;
-
-        &__btn-1,
-        &__btn-2 {
-          width: 80%;
-          font-size: 20px;
-          cursor: pointer;
-        }
-
-        &__refresh {
-          width: 20%;
-          font-weight: bold;
-          font-size: 24px;
-          cursor: pointer;
-        }
-      }
-    }
   }
 
   &__Notes {
     width: 98%;
     height: 400px;
     @include displayflex(flex-start, flex-start,flex);
-    text-align: center;
     flex-wrap: wrap;
     gap: 10px;
     margin: 10px;

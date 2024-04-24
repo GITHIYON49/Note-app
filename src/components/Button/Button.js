@@ -1,8 +1,8 @@
 import './style.scss'
 
-function Button({onClick,add}) {
+function Button({onClick,add,type}) {
   return <>
-  <button type='button' onClick={onClick} className='button'>
+  <button type={type} onClick={onClick} className='button'>
     {add}
   </button>
   </>

@@ -1,9 +1,16 @@
-
 export const Strings = {
-    applicationTitle : 'note app',
-    titleInput : 'tittle',
-    textArea : 'description',
-    addBtn:'Add',
-    updateBtn:'Update',
-    notFound:'No Record Found...'
-}
+  applicationTitle: "note app",
+  titleInput: "tittle",
+  textArea: "description",
+  addBtn: "Add",
+  updateBtn: "Update",
+  notFound: "No Record Found...",
+  placeHolderName: "Enter Your Tittle",
+  inputName: "name",
+  inputDescription: "description",
+  typeBtn: "button",
+  addMsg: "Add Successfully",
+  deleteMsg: "Delete Successfully",
+  updateMsg: "Update Successfully",
+  emptyMsg: "Fill Out The Fields",
+};
